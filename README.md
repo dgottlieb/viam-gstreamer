@@ -1,8 +1,8 @@
 For ubuntu:
-1. Install basic system available dependencies:
+1. Install necessary system available dependencies:
 ```
 sudo apt update
-sudo apt-get install cmake build-essential libabsl-dev libboost-all-dev libgrpc++-dev libprotobuf-dev libxtensor-dev pkg-config ninja-build protobuf-compiler-grpc libjson-glib-dev libsoup2.4-dev
+sudo apt-get install build-essential libabsl-dev libboost-all-dev libgrpc++-dev libprotobuf-dev libxtensor-dev pkg-config ninja-build protobuf-compiler-grpc libjson-glib-dev libsoup2.4-dev
 ```
 2. Get [cmake](https://cmake.org/) 3.25+
 E.g:
@@ -16,6 +16,7 @@ export PATH="$HOME/bin/cmake-3.27.1-linux-x86_64/bin/:$PATH"
 
 3. Clone + build the [viam-cpp-sdk](https://github.com/viamrobotics/viam-cpp-sdk)
 ```
+cd ~/
 git clone https://github.com/viamrobotics/viam-cpp-sdk.git
 mkdir ~/viam-cpp-sdk/build
 cd viam-cpp-sdk/build
@@ -51,5 +52,11 @@ sudo apt install libgstreamer1.0-dev
 
 5. Clone + Build this demo project
 ```
-Coming soon
+cd ~/
+git clone https://github.com/dgottlieb/viam-gstreamer.git
+mkdir viam-gstreamer/build
+cd viam-gstreamer/build
+cmake -DCMAKE_PREFIX_PATH=~/viam-cpp-sdk/build/install .. -G Ninja
+ninja
+./gstream-viam-module
 ```
